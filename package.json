@@ -1,6 +1,7 @@
 {
   "name": "react-custom-social-icons-demo",
   "private": true,
+  "homepage": "https://olegtabachnikow.github.io/react-custom-social-icons-demo/index.html",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
