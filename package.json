@@ -1,7 +1,7 @@
 {
   "name": "react-custom-social-icons-demo",
   "private": true,
-  "homepage": "https://olegtabachnikow.github.io/react-custom-social-icons-demo/index.html",
+  "homepage": "https://olegtabachnikow.github.io/react-custom-social-icons-demo/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,6 +9,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
