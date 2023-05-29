@@ -1,10 +1,11 @@
-import { ChangeEvent, useState } from 'react';
-import { SocialIcon } from 'react-custom-social-iconsss';
+import { CSSProperties, useState } from 'react';
+import { SocialIcon } from 'react-custom-social-icons';
 import {
   Shapes,
   SocialIconSize,
   SocialNetwork,
-} from 'react-custom-social-iconsss/dist/esm/types';
+} from 'react-custom-social-icons/dist/esm/types';
+import { ColorResult, SliderPicker } from 'react-color';
 
 const networks: SocialNetwork[] = [
   'facebook',
@@ -43,6 +44,13 @@ const networks: SocialNetwork[] = [
   'zoom',
 ];
 
+const selectStyles: CSSProperties = {
+  height: 40,
+  paddingInline: 5,
+  borderRadius: 0,
+  color: '#000',
+};
+
 function App() {
   const [currentColor, setCurrentColor] = useState<string>('#000000');
   const [isColoredIcons, setIsColoredIcons] = useState<boolean>(false);
@@ -50,21 +58,18 @@ function App() {
   const [currentShape, setCurrentShape] = useState<Shapes>('rounded');
   const [size, setSize] = useState<SocialIconSize>('big');
 
-  const onColorChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCurrentColor(e.target.value);
+  const onColorChange = (e: ColorResult) => {
+    setCurrentColor(e.hex);
   };
 
   return (
     <div
       style={{
-        width: '100%',
-        height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
-        overflow: 'hidden',
+        paddingInline: 20,
+        paddingBlock: 60,
         boxSizing: 'border-box',
       }}
     >
@@ -72,11 +77,12 @@ function App() {
       <h2>DEMO</h2>
       <div
         style={{
-          display: 'flex',
+          display: 'inline-flex',
           gap: 10,
           flexWrap: 'wrap',
           maxWidth: 550,
           width: '100%',
+          justifyContent: 'center',
         }}
       >
         {networks.map((el: SocialNetwork, i: number) => (
@@ -98,14 +104,10 @@ function App() {
           marginTop: 50,
         }}
       >
-        <input
-          type='color'
-          onChange={onColorChange}
-          style={{ width: '100%', height: 40 }}
-        />
+        <SliderPicker onChange={onColorChange} color={currentColor} />
         <select
           onChange={(e) => setCurrentShape(e.target.value as Shapes)}
-          style={{ height: 40, paddingInline: 5, marginBlock: 10 }}
+          style={{ ...selectStyles, marginBlock: 20 }}
         >
           <option value='rounded'>Rounded</option>
           <option value='round'>Round</option>
@@ -113,7 +115,7 @@ function App() {
         </select>
         <select
           onChange={(e) => setSize(e.target.value as SocialIconSize)}
-          style={{ height: 40, paddingInline: 5 }}
+          style={selectStyles}
         >
           <option value='big'>Big</option>
           <option value='medium'>Medium</option>
@@ -121,6 +123,7 @@ function App() {
         </select>
         <label style={{ height: 40, marginBlock: 10 }}>
           <input
+            style={{ marginRight: 5 }}
             type='checkbox'
             onChange={() => setIsColoredIcons((state) => !state)}
           />
@@ -128,6 +131,7 @@ function App() {
         </label>
         <label style={{ height: 40 }}>
           <input
+            style={{ marginRight: 5 }}
             type='checkbox'
             onChange={() => setIsColorlessIcons((state) => !state)}
           />
