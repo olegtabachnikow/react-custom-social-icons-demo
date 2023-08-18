@@ -1,8 +1,8 @@
 {
   "name": "react-custom-social-icons-demo",
   "private": false,
-  "homepage": "https://olegtabachnikow.github.io/react-custom-social-icons-demo/",
-  "version": "0.0.0",
+  "homepage": "https://olegtabachnikow.github.io/react-custom-social-icons-demo",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,8 +16,7 @@
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
-    "react-custom-social-icons": "^1.0.2",
-    "react-custom-social-iconsss": "^0.1.6",
+    "react-custom-social-icons": "^1.0.6",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {

@@ -13,6 +13,7 @@ const networks: SocialNetwork[] = [
   'behance',
   'discord',
   'dribbble',
+  'github',
   'facebook-pixel',
   'gmail',
   'google-calendar',
